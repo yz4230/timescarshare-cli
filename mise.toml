@@ -1,0 +1,15 @@
+[env]
+# Load credentials for local runs. Missing .env is tolerated (vars stay unset).
+_.file = ".env"
+
+[tasks.run]
+description = "Run the CLI with .env loaded"
+run = "go run ."
+
+[tasks.build]
+description = "Build the binary into dist/"
+run = "go build -o dist/timescarshare-cli ."
+
+[tasks.tag]
+description = "Tag the next release: mise run tag <major|minor|patch|M|m|p> [--dry-run]"
+run = "scripts/tag.sh"
